@@ -1,0 +1,103 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>configuration</artifactId>
+	<groupId>de.pa2.commons</groupId>
+	<name>commons-configuration</name>
+	<version>1.2.0</version>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven-compiler-plugin-version>3.5.1</maven-compiler-plugin-version>
+		<maven-source-plugin-version>3.0.1</maven-source-plugin-version>
+		<maven-javadoc-plugin-version>2.10.4</maven-javadoc-plugin-version>
+		
+		<java-source-version>1.6</java-source-version>
+		<java-target-version>1.6</java-target-version>
+		
+		<!-- deps -->
+		<dependency-slf4j-version>1.7.6</dependency-slf4j-version>
+		
+		<!-- test deps -->
+		<dependency-logback-version>1.1.2</dependency-logback-version>
+		<dependency-testng-version>6.9.6</dependency-testng-version>
+		<dependency-fest-assert-version>1.4</dependency-fest-assert-version>
+	</properties>
+	<build>
+		<finalName>pa-${project.name}</finalName>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven-compiler-plugin-version}</version>
+				<configuration>
+					<source>${java-source-version}</source>
+					<target>${java-target-version}</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>${maven-source-plugin-version}</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>${maven-javadoc-plugin-version}</version>
+				<executions>
+					<execution>
+					<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+	<dependencies>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${dependency-slf4j-version}</version>
+		</dependency>
+		
+		<!-- test dependencies -->
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>${dependency-logback-version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>${dependency-testng-version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.easytesting</groupId>
+			<artifactId>fest-assert</artifactId>
+			<version>${dependency-fest-assert-version}</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+	<scm>
+		<url>https://github.com/pie-ai/pa-commons-configuration</url>
+		<developerConnection>Patrick Stricker - http://pa2.de</developerConnection>
+	</scm>
+	<issueManagement>
+		<url>https://github.com/pie-ai/pa-commons-configuration/issues</url>
+	</issueManagement>
+	<organization>
+		<url>http://pa2.de</url>
+		<name>Patrick Stricker</name>
+	</organization>
+	<url>https://github.com/pie-ai/pa-commons-configuration</url>
+</project>
