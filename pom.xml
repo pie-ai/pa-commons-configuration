@@ -10,13 +10,13 @@
 		<maven-compiler-plugin-version>3.5.1</maven-compiler-plugin-version>
 		<maven-source-plugin-version>3.0.1</maven-source-plugin-version>
 		<maven-javadoc-plugin-version>2.10.4</maven-javadoc-plugin-version>
-		
+
 		<java-source-version>1.6</java-source-version>
 		<java-target-version>1.6</java-target-version>
-		
+
 		<!-- deps -->
 		<dependency-slf4j-version>1.7.6</dependency-slf4j-version>
-		
+
 		<!-- test deps -->
 		<dependency-logback-version>1.1.2</dependency-logback-version>
 		<dependency-testng-version>6.9.6</dependency-testng-version>
@@ -52,7 +52,7 @@
 				<version>${maven-javadoc-plugin-version}</version>
 				<executions>
 					<execution>
-					<id>attach-javadocs</id>
+						<id>attach-javadocs</id>
 						<goals>
 							<goal>jar</goal>
 						</goals>
@@ -67,7 +67,7 @@
 			<artifactId>slf4j-api</artifactId>
 			<version>${dependency-slf4j-version}</version>
 		</dependency>
-		
+
 		<!-- test dependencies -->
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
@@ -100,4 +100,14 @@
 		<name>Patrick Stricker</name>
 	</organization>
 	<url>https://github.com/pie-ai/pa-commons-configuration</url>
+	<distributionManagement>
+		<snapshotRepository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+		</snapshotRepository>
+		<repository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+		</repository>
+	</distributionManagement>
 </project>
