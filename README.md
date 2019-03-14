@@ -2,7 +2,7 @@
 This is our common used very slim API based configuration library.
 
 ## usage
-Examples can be found at https://github.com/pie-ai/pa-commons-configuration/tree/master/src/test/java/de/pa2/commons/configuration/examples
+Examples can be found at https://github.com/pie-ai/pa-commons-configuration/tree/master/src/test/java/de/pa2/commons/configuration
 ### Create a configuration interface:
 
 ```java
