@@ -19,13 +19,21 @@
  */
 package de.pa2.commons.configuration;
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+import de.pa2.commons.configuration.resolvers.PropertyResolver;
+import de.pa2.commons.configuration.resolvers.SystemPropertyResolver;
 
-@Target(ElementType.METHOD)
-@Retention(RetentionPolicy.RUNTIME)
-public @interface DefaultBooleanValue {
-	boolean value();
+/**
+ * configuration factory that uses system properties as source of configuration values
+ */
+public class SystemPropertyConfigurationFactory extends AbstractConfigurationFactory
+        implements Factory {
+
+    public SystemPropertyConfigurationFactory() {
+        super();
+    }
+
+    @Override
+    protected PropertyResolver getResolver() {
+    	return new SystemPropertyResolver();
+    }
 }

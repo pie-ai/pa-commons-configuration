@@ -19,13 +19,20 @@
  */
 package de.pa2.commons.configuration;
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+import de.pa2.commons.configuration.resolvers.EnvironmentResolver;
+import de.pa2.commons.configuration.resolvers.PropertyResolver;
 
-@Target(ElementType.METHOD)
-@Retention(RetentionPolicy.RUNTIME)
-public @interface DefaultBooleanValue {
-	boolean value();
+/**
+ * configuration factory that uses environment as source of configuration values
+ */
+public class EnvironmentPropertyConfigurationFactory extends AbstractConfigurationFactory implements Factory {
+
+	public EnvironmentPropertyConfigurationFactory() {
+		super();
+	}
+
+	@Override
+	protected PropertyResolver getResolver() {
+		return new EnvironmentResolver();
+	}
 }

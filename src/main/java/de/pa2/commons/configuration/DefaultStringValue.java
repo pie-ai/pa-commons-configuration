@@ -1,5 +1,5 @@
 /*
- * copyright (C) 2008-2016 Patrick Stricker
+ * copyright (C) 2008-2019 Patrick Stricker
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public License
@@ -24,6 +24,9 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+/**
+ * annotation to set a default value directly in the configuration interface
+ */
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface DefaultStringValue {

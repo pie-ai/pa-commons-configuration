@@ -1,5 +1,5 @@
 /*
- * copyright (C) 2008-2016 Patrick Stricker
+ * copyright (C) 2008-2019 Patrick Stricker
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public License
@@ -19,6 +19,9 @@
  */
 package de.pa2.commons.configuration;
 
+/**
+ * marker interface for a configuration
+ */
 public interface Configuration {
 
 }

@@ -17,15 +17,13 @@
  *
  * 	Patrick Stricker - http://pa2.de
  */
-package de.pa2.commons.configuration;
+package de.pa2.commons.configuration.resolvers;
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+/**
+ * resolves properties, is used internally
+ */
+public interface PropertyResolver {
 
-@Target(ElementType.METHOD)
-@Retention(RetentionPolicy.RUNTIME)
-public @interface DefaultBooleanValue {
-	boolean value();
+	String getProperty(String propertyName, String defaultValue);
+
 }

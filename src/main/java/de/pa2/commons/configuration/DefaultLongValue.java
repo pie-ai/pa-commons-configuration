@@ -24,8 +24,11 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+/**
+ * annotation to set a default value directly in the configuration interface
+ */
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface DefaultBooleanValue {
-	boolean value();
+public @interface DefaultLongValue {
+	long value();
 }

@@ -17,15 +17,22 @@
  *
  * 	Patrick Stricker - http://pa2.de
  */
-package de.pa2.commons.configuration;
+package de.pa2.commons.configuration.resolvers;
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+/**
+ * property resolver that uses env variables
+ */
+public class EnvironmentResolver implements PropertyResolver {
 
-@Target(ElementType.METHOD)
-@Retention(RetentionPolicy.RUNTIME)
-public @interface DefaultBooleanValue {
-	boolean value();
+    @Override
+    public String getProperty(String propertyName, String defaultValue) {
+        // foo.bar looks up FOO_BAR
+        String envName = propertyName.replaceAll("\\.", "_").toUpperCase();
+        if (System.getenv().containsKey(envName)) {
+            return System.getenv(envName);
+        } else {
+            return defaultValue;
+        }
+    }
+
 }
