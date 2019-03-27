@@ -66,7 +66,7 @@ public class DefaultConfigurationFactory extends AbstractConfigurationFactory im
 		resolver.add(new ResourcePropertyResolver(hostSpecificPropertyFileName));
 
 		// default properties provided as file
-		File defaultFile = this.detectFile("default.properties");
+		File defaultFile = detectFile("default.properties");
 		if (defaultFile != null && defaultFile.exists()) {
 			try {
 				resolver.add(new ResourcePropertyResolver(new FileInputStream(defaultFile)));
@@ -79,7 +79,7 @@ public class DefaultConfigurationFactory extends AbstractConfigurationFactory im
 		return resolver;
 	}
 
-	private File detectFile(String fileName) {
+	public static File detectFile(String fileName) {
 		File result = null;
 
 		if (new File(fileName).exists()) {
@@ -94,6 +94,9 @@ public class DefaultConfigurationFactory extends AbstractConfigurationFactory im
 		} else if (System.getProperty("jboss.server.config.dir") != null
 				&& new File(new File(System.getProperty("jboss.server.config.dir")), fileName).exists()) {
 			result = new File(new File(System.getProperty("jboss.server.config.dir")), fileName);
+		} else if (System.getProperty("application.home") != null
+				&& new File(new File(System.getProperty("application.home") + "/conf"), fileName).exists()) {
+			result = new File(new File(System.getProperty("application.home") + "/conf"), fileName);
 		}
 
 		return result;
