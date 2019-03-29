@@ -1,10 +1,10 @@
 image: maven:latest
 
 variables:
-#  MAVEN_CLI_OPTS: "-s .m2/settings.xml --batch-mode"
-  MAVEN_CLI_OPTS: ""
+  MAVEN_CLI_OPTS: "-s settings.xml -Dsnapshot-build=true"
   MAVEN_OPTS: "-Dmaven.repo.local=.m2/repository"
-
+  USERNAME: ${K8S_SECRET_USERNAME}
+  PASSWORD: ${K8S_SECRET_PASSWORD}
 cache:
   paths:
     - .m2/repository/
@@ -20,9 +20,9 @@ test:
   script:
     - mvn $MAVEN_CLI_OPTS test
 
-#deploy:
-#  stage: deploy
-#  script:
-#    - mvn $MAVEN_CLI_OPTS deploy
+deploy:
+  stage: deploy
+  script:
+    - mvn $MAVEN_CLI_OPTS deploy
 #  only:
 #    - master
