@@ -1,4 +1,4 @@
-image: maven:latest
+image: maven:3.6.0-jdk-8-alpine
 
 variables:
   MAVEN_CLI_OPTS: "-s settings.xml -Dsnapshot-build=true"
